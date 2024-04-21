@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Popup Button Example</title>
+<script>
+function openPopup() {
+  // Define the size and properties of the popup window
+  var width = 600;
+  var height = 400;
+  var left = (window.innerWidth - width) / 2;
+  var top = (window.innerHeight - height) / 2;
+  var options = "width=" + width + ",height=" + height + ",top=" + top + ",left=" + left;
+
+  // Open the popup window with about:blank initially
+  var newWindow = window.open("about:blank", "Popup", options);
+
+  // Wait for a short delay before adding HTML content to the new window
+  setTimeout(function() {
+    // Create iframe element
+    var iframe = document.createElement("iframe");
+    iframe.style.width = "100%";
+    iframe.style.height = "100%";
+    iframe.style.border = "none";
+
+    // Set the source of the iframe
+    iframe.src = "https://webglmath.github.io/cookie-clicker/";
+
+    // Append the iframe to the new window's document body
+    newWindow.document.body.appendChild(iframe);
+  }, 100); // Adjust the delay as needed
+}
+</script>
+</head>
+<body>
+
+<!-- Button to open a new window -->
+<button onclick="openPopup()">Play fullscreen</button>
+
+</body>
+</html>
