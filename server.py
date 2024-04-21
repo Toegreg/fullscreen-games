@@ -1,23 +1,39 @@
 import http.server
 import socketserver
 import subprocess
+import requests
+import json
 
 PORT = 8000
+DISCORD_WEBHOOK_URL = "YOUR_DISCORD_WEBHOOK_URL_HERE"
 
 class Handler(http.server.SimpleHTTPRequestHandler):
     def do_POST(self):
-        # Assuming the command to run is fixed
-        command = "python script.py"
-        
-        # Execute the command
-        response = subprocess.run(command, capture_output=True, text=True, shell=True)
-        output = response.stdout
+        # Define the message content
+        message_content = "Bob"
 
-        # Send back the output of the script
+        # Create the payload
+        payload = {
+            "content": message_content
+        }
+
+        # Convert the payload to JSON format
+        json_payload = json.dumps(payload)
+
+        # Send a POST request to the Discord webhook URL with the JSON payload
+        response = requests.post(DISCORD_WEBHOOK_URL, data=json_payload, headers={'Content-Type': 'application/json'})
+
+        # Check the response status
+        if response.status_code == 204:
+            print("Message sent successfully to Discord")
+        else:
+            print("Failed to send message to Discord. Status code:", response.status_code)
+
+        # Send back the response to the client
         self.send_response(200)
         self.send_header('Content-type', 'text/plain')
         self.end_headers()
-        self.wfile.write(output.encode())
+        self.wfile.write(b"Message sent to Discord")
 
 with socketserver.TCPServer(("", PORT), Handler) as httpd:
     print("Server started at localhost:" + str(PORT))
