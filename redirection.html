@@ -3,6 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirection Page</title>
+    <script>
+        // JavaScript to redirect /redirection.html to /404.html
+        var currentUrl = window.location.href;
+        var redirectUrl = "/404.html";
+
+        // Check if the current URL matches /redirection.html and redirect if necessary
+        if (currentUrl.endsWith("/redirection.html")) {
+            window.location.href = redirectUrl;
+        }
+    </script>
+</head>
+<body>
+    <!-- Your HTML content goes here -->
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirect Script</title>
     <script>
         // JavaScript to redirect /cookieclicker to /cookieclicker.html
