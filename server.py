@@ -5,7 +5,7 @@ import requests
 import json
 
 PORT = 8000
-DISCORD_WEBHOOK_URL = "YOUR_DISCORD_WEBHOOK_URL_HERE"
+DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1227314096404434964/UuerVrxbUe8YPSdhVbnsOw3a0BSSL6N3Cnflv4NNeMTahbZNsuuc5_0MWlax5dv1fRJJ"
 
 class Handler(http.server.SimpleHTTPRequestHandler):
     def do_POST(self):
