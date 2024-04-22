@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirection Page</title>
     <script>
-        // JavaScript to redirect /redirection.html to /404.html
+        
         var currentUrl = window.location.href;
         var redirectUrl = "games/404.html";
 
@@ -30,7 +30,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirect Script</title>
     <script>
-        // JavaScript to redirect /cookieclicker to /cookieclicker.html
+        // Js function to redirect site to something else(WITH KEEPING URL)
         function redirect(URL, url2) {
     var redirectfrom = /\/$/;
     var redirect2 = url2;
@@ -45,8 +45,7 @@
         redirect("cookieclicker", "/cookieclicker.html");
         redirect("drive-mad", "/drivemad.html");
         redirect("1v1.lol", "/1v1lol.html");
-        redirect("home", "/index.html");
-        
+        redirect("home", "/");
         
     </script>
 </head>
