@@ -31,21 +31,20 @@
     <title>Redirect Script</title>
     <script>
         // JavaScript to redirect /cookieclicker to /cookieclicker.html
-        var currentUrl = window.location.href;
-        var cookieclicker = currentUrl.replace(/\/cookieclicker$/, '/cookieclicker.html');
-        var drivemad = curentUrl.replace(/\/drive-mad$/, '/drivemad.html');
-        var lol = curentUrl.replace(/\/1v1.lol$/, '/1v1lol.html'
+        function redirect(URL, url2) {
+    var redirectfrom = /\/$/;
+    var redirect2 = url2;
+    var currentUrl = URL;
+    var redirection = currentUrl.replace(redirectfrom, redirect2);
+    if (currentUrl !== redirection) {
+        window.location = redirection;
+    }
+}
 
-        // Check if the current URL ends with /cookieclicker and redirect if necessary
-        if (currentUrl !== cookieclicker) {
-            window.location.href = redirectUrl;
-        }
-        if (currentUrl !== drivemad) {
-            window.location.href = drivemad;
-        }
-        if (currentUrl !== lol) {
-            widow.location.href = lol;
-        }
+        var currentUrl = window.location.href;
+        redirect("cookieclicker", "/cookieclicker.html");
+        redirect("drive-mad", "/drivemad.html");
+        redirect("1v1.lol", "/1v1lol.html");
         
     </script>
 </head>
