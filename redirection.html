@@ -1,27 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirection Page</title>
-    <script>
-        
-        var currentUrl = window.location.href;
-        var redirectUrl = "games/404.html";
-
-        // Check if the current URL matches /redirection.html and redirect if necessary
-        if (currentUrl.endsWith("/redirection.html")) {
-            window.location.href = redirectUrl;
-        }
-    </script>
-</head>
-<body>
-    <!-- Your HTML content goes here -->
-</body>
-</html>
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,22 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirect Script</title>
     <script>
+
+        function redirect2(redirectFrom, redirectTo) {
+    var currentUrl = window.location.href;
+    var redirection = currentUrl.replace(redirectFrom, redirectTo);
+    window.location.href = redirection;
+}
+
         // Js function to redirect site to something else(WITH KEEPING URL)
         function redirect(URL, url2) {
-    var redirectfrom = /\/$/;
-    var redirect2 = url2;
-    var currentUrl = URL;
-    var redirection = currentUrl.replace(redirectfrom, redirect2);
+    var currentUrl = window.location.href;
+    var redirection = currentUrl.replace(URL, url2);
     if (currentUrl !== redirection) {
         window.location = redirection;
     }
 }
 
-        var currentUrl = window.location.href;
         redirect("cookieclicker", "/cookieclicker.html");
         redirect("drive-mad", "/drivemad.html");
         redirect("1v1.lol", "/1v1lol.html");
-        redirect("home", "/");
+        redirect("home", "/index.html");
+        redirect2("redirection.html", "/404.html"
         
     </script>
 </head>
